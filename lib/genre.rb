@@ -27,9 +27,9 @@ class Genre
     Genre.new(name).save
   end
 
-  def add_song(instance_of_song)
-    @songs << instance_of_song if !@songs.include?(instance_of_song)
-    instance_of_song.genre = self if !instance_of_song.genre
+  def add_song(song)
+    @songs << song if !@songs.include?(song)
+    song.genre = self if !song.genre
   end
 
   def songs

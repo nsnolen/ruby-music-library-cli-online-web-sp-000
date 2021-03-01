@@ -26,9 +26,9 @@ class Artist
     Artist.new(name).save
   end
 
-  def add_song(instance_of_song)
-    @songs << instance_of_song if !@songs.include?(instance_of_song)
-    instance_of_song.artist = self if instance_of_song.artist != self #assigns the current artist to the song's 'artist' property (song belongs to artist)
+  def add_song(song)
+    @songs << song if !@songs.include?(song)
+    song.artist = self if song.artist != self #assigns the current artist to the song's 'artist' property (song belongs to artist)
   end
 
   def songs
