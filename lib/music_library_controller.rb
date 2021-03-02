@@ -10,7 +10,7 @@ class MusicLibraryController
 
   def call
     users_input = gets.chomp
-    if input != "exit"
+    if user_input != "exit"
     puts "Welcome to your music library!"
     puts "To list all of your songs, enter 'list songs'."
     puts "To list all of the artists in your library, enter 'list artists'."
@@ -26,6 +26,10 @@ class MusicLibraryController
         list_songs
       when "list artists"
         list_artists
+      when "list genres"
+        list_genres
+      when "play song"
+        play_song 
       end
    end
  end
