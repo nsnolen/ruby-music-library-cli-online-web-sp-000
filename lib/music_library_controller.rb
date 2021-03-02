@@ -10,8 +10,6 @@ class MusicLibraryController
 
   def call
     users_input = gets.strip
-
-    #if users_input != "exit"
     puts "Welcome to your music library!"
     puts "To list all of your songs, enter 'list songs'."
     puts "To list all of the artists in your library, enter 'list artists'."
@@ -74,7 +72,7 @@ class MusicLibraryController
         puts "#{index}. #{song.name} - #{song.genre.name}"
       end
     end
- end
+   end
  end
 
 
@@ -95,9 +93,7 @@ def play_song
      alphabetized_songs = Song.all.sort{|a, b| a.name <=> b.name}
      song = alphabetized_songs[user_input-1]
      puts "Playing #{song.name} by #{song.artist.name}" if song
- end
+   end
 end
-
-
 
 end
