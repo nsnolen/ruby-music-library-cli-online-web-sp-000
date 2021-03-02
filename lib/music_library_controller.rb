@@ -40,6 +40,7 @@ class MusicLibraryController
       else
         call
       end
+    end
    end
  end
 
