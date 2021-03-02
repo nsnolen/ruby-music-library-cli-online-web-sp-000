@@ -9,7 +9,7 @@ class MusicLibraryController
   end
 
   def call
-    users_input = gets.chomp
+    users_input = gets.strip
     if user_input != "exit"
     puts "Welcome to your music library!"
     puts "To list all of your songs, enter 'list songs'."
