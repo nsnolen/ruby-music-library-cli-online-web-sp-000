@@ -21,7 +21,7 @@ class MusicLibraryController
     puts "To quit, type 'exit'."
     puts "What would you like to do?"
 
-    case users_input
+    case user_input
       when "list songs"
         list_songs
       when "list artists"
