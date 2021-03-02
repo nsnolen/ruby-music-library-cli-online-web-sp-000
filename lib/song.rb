@@ -22,8 +22,9 @@ class Song
     @@all.clear
   end
 
-  def self.create(name, artist = nil, genre = nil)
-    Song.new(name, artist, genre).save
+  def self.create(name)
+    Song.new(name).save
+
   end
 
   def artist=(artist)   #assigns an artist to the song (song belongs to artist)
@@ -48,7 +49,6 @@ class Song
 
       array = filename.gsub(/(\.mp3)/,'')
       array = array.split(" - ")
-
     artist = Artist.find_or_create_by_name(array[0])
     song = Song.find_or_create_by_name(array[1])
     genre = Genre.find_or_create_by_name(array[2])
@@ -58,6 +58,7 @@ class Song
   end
 
   def self.create_from_filename(filename)
-    files = Song.new_from_filename(filename).save
+    files = Song.new_from_filename(filename)
+
   end
 end

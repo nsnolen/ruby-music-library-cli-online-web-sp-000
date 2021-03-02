@@ -9,6 +9,8 @@ class MusicLibraryController
   end
 
   def call
+    users_input = gets.chomp
+    if input != "exit"
     puts "Welcome to your music library!"
     puts "To list all of your songs, enter 'list songs'."
     puts "To list all of the artists in your library, enter 'list artists'."
@@ -18,12 +20,15 @@ class MusicLibraryController
     puts "To play a song, enter 'play song'."
     puts "To quit, type 'exit'."
     puts "What would you like to do?"
-    users_input = gets.chomp
-      until users_input == 'exit'
-        puts "What would you like to do?"
-        users_input = gets.chomp
+
+    case users_input
+      when "list songs"
+        list_songs
+      when "list artists"
+        list_artists
       end
    end
+ end
 
 
  def list_songs
@@ -74,13 +79,11 @@ end
 def play_song
   puts "Which song number would you like to play?"
   user_input = gets.strip.to_i
-  if user_input > 0 && user_input <= Song.all.length
-  alphabetized_songs = Song.all.sort_by(&:name)
-  song = alphabetized_songs[user_input]
-    puts "Playing #{song.name} by #{song.artist.name}"
-
-
-  end
+   if user_input > 0 && user_input <= Song.all.length
+     alphabetized_songs = Song.all.sort{|a, b| a.name <=> b.name}
+     song = alphabetized_songs[user_input-1]
+     puts "Playing #{song.name} by #{song.artist.name}" if song
+ end
 end
 
 
