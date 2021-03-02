@@ -10,7 +10,7 @@ class MusicLibraryController
 
   def call
     users_input = gets.strip
-    until users_input == "exit"
+    
     #if users_input != "exit"
     puts "Welcome to your music library!"
     puts "To list all of your songs, enter 'list songs'."
@@ -21,7 +21,7 @@ class MusicLibraryController
     puts "To play a song, enter 'play song'."
     puts "To quit, type 'exit'."
     puts "What would you like to do?"
-
+    if users_input != "exit"
     case users_input
       when "list songs"
         list_songs
